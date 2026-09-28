@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outubro Rosa & Saúde da Mulher | Cuidado & Conscientização</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="app.js" defer></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#FFF0F5',
+              100: '#FCE4EC',
+              200: '#F8BBD0',
+              300: '#F48FB1',
+              400: '#F06292',
+              500: '#EC407A',
+              600: '#E91E63',
+              700: '#C2185B',
+              800: '#AD1457',
+              900: '#880E4F',
+              950: '#4A0025',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+
+  </style>
+</head>
+
+<body class="bg-rose-50/40 dark:bg-zinc-950 text-zinc-800 dark:text-rose-100 font-sans transition-colors duration-300 min-h-screen flex flex-col antialiased">
+
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-zinc-950/80 border-b border-brand-100 dark:border-brand-900/40 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo e Título -->
+        <a href="#" class="flex items-center gap-3 group">
+          <!-- <div class="w-10 h-10 rounded-full bg-brand-700 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </div> -->
+          <div class="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center p-5.5 shadow-md group-hover:scale-105 transition-transform overflow-hidden">
+  <img src="logo.png" alt="Laço Outubro Rosa" class="w-full h-full object-contain">
+</div>
+          <div>
+            <span class="block font-serif text-xl font-bold text-brand-900 dark:text-brand-200 leading-tight">Outubro Rosa</span>
+            <span class="block text-xs font-semibold text-brand-600 dark:text-brand-400 tracking-wider uppercase">Saúde & Autocuidado</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+          <a href="#autoavaliacao" class="px-3 py-2 text-sm font-medium rounded-lg text-zinc-700 dark:text-zinc-200 hover:text-brand-700 hover:bg-brand-50 dark:hover:bg-brand-950/60 transition-all">Autoavaliação</a>
+          <a href="#prevencao" class="px-3 py-2 text-sm font-medium rounded-lg text-zinc-700 dark:text-zinc-200 hover:text-brand-700 hover:bg-brand-50 dark:hover:bg-brand-950/60 transition-all">Prevenção</a>
+          <a href="#cuidados" class="px-3 py-2 text-sm font-medium rounded-lg text-zinc-700 dark:text-zinc-200 hover:text-brand-700 hover:bg-brand-50 dark:hover:bg-brand-950/60 transition-all">Cuidados e Direitos</a>
+          <a href="#quiz" class="px-3 py-2 text-sm font-medium rounded-lg text-zinc-700 dark:text-zinc-200 hover:text-brand-700 hover:bg-brand-50 dark:hover:bg-brand-950/60 transition-all">Mito ou Verdade</a>
+          <a href="#checklist" class="px-3 py-2 text-sm font-medium rounded-lg text-zinc-700 dark:text-zinc-200 hover:text-brand-700 hover:bg-brand-50 dark:hover:bg-brand-950/60 transition-all">Meu Cuidado</a>
+        </nav>
+
+        <!-- Ações do Header (Dark Mode & Mobile Toggle) -->
+        <div class="flex items-center gap-3">
+          <button id="themeToggle" class="p-2.5 rounded-full text-zinc-600 dark:text-zinc-300 hover:bg-brand-100/50 dark:hover:bg-brand-900/30 transition-colors" aria-label="Alternar tema">
+            <!-- Sol -->
+            <svg id="sunIcon" class="w-5 h-5 hidden dark:block stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            <!-- Lua -->
+            <svg id="moonIcon" class="w-5 h-5 block dark:hidden stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </button>
+
+          <!-- Botão Mobile -->
+          <button id="menuBtn" class="md:hidden p-2 rounded-lg text-zinc-700 dark:text-zinc-200 hover:bg-brand-50 dark:hover:bg-brand-950" aria-label="Abrir menu">
+            <svg class="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+<!-- Mobile Navigation Drawer (Com transição suave de slide/fade) -->
+<div 
+  id="mobileMenu" 
+  class="md:hidden border-b border-brand-100 dark:border-brand-900 bg-white dark:bg-zinc-950 px-4 space-y-1 overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-in-out"
+>
+  <div class="pt-2 pb-6 space-y-1">
+    <a href="#autoavaliacao" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-zinc-800 dark:text-zinc-200 hover:bg-brand-50 dark:hover:bg-brand-950 transition-colors">Autoavaliação</a>
+    <a href="#prevencao" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-zinc-800 dark:text-zinc-200 hover:bg-brand-50 dark:hover:bg-brand-950 transition-colors">Prevenção</a>
+    <a href="#cuidados" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-zinc-800 dark:text-zinc-200 hover:bg-brand-50 dark:hover:bg-brand-950 transition-colors">Cuidados e Direitos</a>
+    <a href="#quiz" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-zinc-800 dark:text-zinc-200 hover:bg-brand-50 dark:hover:bg-brand-950 transition-colors">Mito ou Verdade</a>
+    <a href="#checklist" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-zinc-800 dark:text-zinc-200 hover:bg-brand-50 dark:hover:bg-brand-950 transition-colors">Meu Cuidado</a>
+  </div>
+</div>
+  </header>
+
+  <main class="flex-grow">
+    <section class="hero-gradient relative overflow-hidden py-16 md:py-24 border-b border-brand-200/50 dark:border-brand-900/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid md:grid-cols-12 gap-12 items-center">
+          
+          <div class="md:col-span-7 space-y-6 text-center md:text-left">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-brand-950/80 border border-brand-200 dark:border-brand-800 text-brand-800 dark:text-brand-300 text-xs sm:text-sm font-semibold tracking-wide uppercase shadow-sm">
+              <span class="w-2 h-2 rounded-full bg-brand-600 animate-ping"></span>
+              Juntos Somos Mais Fortes
+            </div>
+            
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-zinc-900 dark:text-zinc-50 leading-tight">
+              Você não pode se colocar por <span class="text-brand-700 dark:text-brand-400 underline decoration-brand-300 dark:decoration-brand-800 decoration-wavy">último</span>.
+            </h1>
+            
+            <p class="text-lg sm:text-xl text-zinc-700 dark:text-zinc-300 font-normal leading-relaxed max-w-2xl">
+              Conhecer o próprio corpo é uma jornada contínua de carinho, amor-próprio e respeito. Sem hora marcada e sem regras rígidas: o seu cuidado também é prioridade.
+            </p>
+
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+              <a href="#autoavaliacao" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-brand-700 hover:bg-brand-800 dark:bg-brand-600 dark:hover:bg-brand-700 text-white font-semibold text-center shadow-lg shadow-brand-700/20 hover:shadow-xl transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                <span>Iniciar Autoavaliação</span>
+                <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+              </a>
+              <a href="#checklist" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white dark:bg-zinc-900 border border-brand-200 dark:border-brand-800 text-brand-800 dark:text-brand-200 font-semibold text-center hover:bg-brand-50 dark:hover:bg-zinc-800 transition-all">
+                Meu Checklist de Saúde
+              </a>
+            </div>
+          </div>
+
+          <!-- Moldura Visual de Destaque -->
+          <div class="md:col-span-5 flex justify-center">
+            <div class="relative w-full max-w-sm">
+              <div class="absolute inset-0 bg-brand-400/20 dark:bg-brand-600/20 rounded-3xl blur-2xl transform rotate-3"></div>
+              <div class="relative bg-white/90 dark:bg-zinc-900/90 border border-brand-200 dark:border-brand-800 rounded-3xl p-8 shadow-xl text-center backdrop-blur-md">
+                <div class="w-20 h-20 mx-auto rounded-full bg-brand-100 dark:bg-brand-950 flex items-center justify-center mb-6 text-brand-700 dark:text-brand-300">
+                  <svg class="w-10 h-10 fill-current animate-pulse" viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                  </svg>
+                </div>
+                <blockquote class="font-serif italic text-xl text-zinc-800 dark:text-zinc-200 mb-4">
+                  "Quantas vezes você cuidou de tudo e de todos, mas deixou você para depois?"
+                </blockquote>
+                <div class="w-12 h-1 bg-brand-600 mx-auto rounded-full mb-3"></div>
+                <p class="text-xs font-bold uppercase tracking-wider text-brand-700 dark:text-brand-400">Campanha Nacional de Prevenção</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="autoavaliacao" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-brand-700 dark:text-brand-400 font-bold text-sm uppercase tracking-wider">Passo a Passo Interativo</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-zinc-100 mt-2 mb-4">
+          Como Fazer a Autoavaliação
+        </h2>
+        <p class="text-zinc-600 dark:text-zinc-300 text-lg">
+          O autoexame permite que você conheça o seu corpo e perceba pequenas alterações no dia a dia. Escolha um momento tranquilo e sem pressa.
+        </p>
+      </div>
+
+      <!-- Carrossel de Etapas -->
+      <div class="bg-white dark:bg-zinc-900 rounded-3xl border border-brand-100 dark:border-brand-900 shadow-xl overflow-hidden mb-16">
+        <div class="grid md:grid-cols-12 items-center">
+          
+          <!-- Lado Ilustrativo SVG -->
+          <div class="md:col-span-5 bg-brand-50 dark:bg-brand-950/60 p-8 sm:p-12 flex flex-col items-center justify-center min-h-[280px] sm:min-h-[340px] border-b md:border-b-0 md:border-r border-brand-100 dark:border-brand-900">
+            <div id="stepIllustration" class="w-36 h-36 sm:w-44 sm:h-44 text-brand-700 dark:text-brand-300 transition-all duration-300 transform scale-100">
+              <!-- SVG dinâmico gerado via JS -->
+            </div>
+            <div class="mt-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-900 text-brand-800 dark:text-brand-200 text-xs font-semibold">
+              Etapa <span id="stepCounterNumber">1</span> de 4
+            </div>
+          </div>
+
+          <!-- Conteúdo da Etapa -->
+          <div class="md:col-span-7 p-6 sm:p-10 flex flex-col justify-between h-full">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">Guia Prático</span>
+                <div id="stepDots" class="flex gap-2"></div>
+              </div>
+
+              <h3 id="stepTitle" class="font-serif text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">
+                <!-- Título dinâmico -->
+              </h3>
+
+              <p id="stepDescription" class="text-zinc-600 dark:text-zinc-300 text-base sm:text-lg leading-relaxed min-h-[100px]">
+                <!-- Descrição dinâmica -->
+              </p>
+            </div>
+
+            <!-- Controles de Navegação -->
+            <div class="mt-8 pt-6 border-t border-zinc-100 dark:border-zinc-800 flex items-center justify-between gap-4">
+              <button id="prevStepBtn" class="px-5 py-2.5 rounded-xl border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 font-semibold hover:bg-zinc-50 dark:hover:bg-zinc-800 disabled:opacity-40 disabled:cursor-not-allowed transition-all">
+                Anterior
+              </button>
+              
+              <button id="nextStepBtn" class="px-6 py-2.5 rounded-xl bg-brand-700 dark:bg-brand-600 text-white font-semibold hover:bg-brand-800 dark:hover:bg-brand-700 shadow-md transition-all">
+                Próximo Passo
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Sinais que merecem atenção -->
+      <div class="mt-20">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <h3 class="font-serif text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-zinc-100">
+            Sinais que Merecem Atenção
+          </h3>
+          <p class="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base mt-2">
+            Caso identifique algum dos sinais abaixo durante o seu autoexame, procure atendimento médico para avaliação.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <div class="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-brand-100 dark:border-brand-900/60 shadow-sm hover:shadow-md transition-all">
+            <div class="w-12 h-12 rounded-xl bg-rose-100 dark:bg-rose-950/80 text-brand-700 dark:text-brand-300 flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
+            </div>
+            <h4 class="font-bold text-lg text-zinc-900 dark:text-zinc-100 mb-2">Caroço (Nódulo)</h4>
+            <p class="text-sm text-zinc-600 dark:text-zinc-400">Presença de nódulo endurecido, geralmente indolor, na mama, axila ou região do pescoço.</p>
+          </div>
+
+          <div class="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-brand-100 dark:border-brand-900/60 shadow-sm hover:shadow-md transition-all">
+            <div class="w-12 h-12 rounded-xl bg-rose-100 dark:bg-rose-950/80 text-brand-700 dark:text-brand-300 flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M9 9h6M9 15h6"/></svg>
+            </div>
+            <h4 class="font-bold text-lg text-zinc-900 dark:text-zinc-100 mb-2">Alteração na Pele</h4>
+            <p class="text-sm text-zinc-600 dark:text-zinc-400">Pele da mama avermelhada, retraída, descamando ou com aspecto semelhante à casca de laranja.</p>
+          </div>
+
+          <div class="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-brand-100 dark:border-brand-900/60 shadow-sm hover:shadow-md transition-all">
+            <div class="w-12 h-12 rounded-xl bg-rose-100 dark:bg-rose-950/80 text-brand-700 dark:text-brand-300 flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>
+            </div>
+            <h4 class="font-bold text-lg text-zinc-900 dark:text-zinc-100 mb-2">Secreção no Mamilo</h4>
+            <p class="text-sm text-zinc-600 dark:text-zinc-400">Saída espontânea de líquido pelo mamilo (especialmente transparente ou contendo sangue).</p>
+          </div>
+
+          <div class="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-brand-100 dark:border-brand-900/60 shadow-sm hover:shadow-md transition-all">
+            <div class="w-12 h-12 rounded-xl bg-rose-100 dark:bg-rose-950/80 text-brand-700 dark:text-brand-300 flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2"><path d="M12 19l-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <h4 class="font-bold text-lg text-zinc-900 dark:text-zinc-100 mb-2">Retração ou Inversão</h4>
+            <p class="text-sm text-zinc-600 dark:text-zinc-400">Mudança recente no formato do mamilo, como afundamento ou dor localizada persistente.</p>
+          </div>
+
+          <div class="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-brand-100 dark:border-brand-900/60 shadow-sm hover:shadow-md transition-all">
+            <div class="w-12 h-12 rounded-xl bg-rose-100 dark:bg-rose-950/80 text-brand-700 dark:text-brand-300 flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14"/></svg>
+            </div>
+            <h4 class="font-bold text-lg text-zinc-900 dark:text-zinc-100 mb-2">Assimetria Recente</h4>
+            <p class="text-sm text-zinc-600 dark:text-zinc-400">Surgimento de desproporção repentina ou alteração visível no contorno de uma das mamas.</p>
+          </div>
+
+          <div class="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-brand-100 dark:border-brand-900/60 shadow-sm hover:shadow-md transition-all">
+            <div class="w-12 h-12 rounded-xl bg-rose-100 dark:bg-rose-950/80 text-brand-700 dark:text-brand-300 flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <h4 class="font-bold text-lg text-zinc-900 dark:text-zinc-100 mb-2">Inchaço ou Sensibilidade</h4>
+            <p class="text-sm text-zinc-600 dark:text-zinc-400">Inchaço parcial ou total de uma mama, acompanhado ou não de sensibilidade excessiva.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="prevencao" class="py-20 bg-brand-50/50 dark:bg-zinc-900/50 border-y border-brand-100 dark:border-brand-900/40">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-brand-700 dark:text-brand-400 font-bold text-sm uppercase tracking-wider">Cuidado Contínuo</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-zinc-100 mt-2 mb-4">
+            Prevenção & Fatores de Risco
+          </h2>
+          <p class="text-zinc-600 dark:text-zinc-300 text-lg">
+            Pequenas escolhas cotidianas ajudam a proteger sua saúde. Conheça as principais orientações científicas sobre hábitos e exames.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8 items-start">
+          
+          <!-- Accordions da Esquerda -->
+          <div class="space-y-4">
+            <!-- Accordion 1 -->
+            <div class="bg-white dark:bg-zinc-900 rounded-2xl border border-brand-100 dark:border-brand-900/60 overflow-hidden shadow-sm">
+              <button class="accordion-header w-full p-6 text-left font-serif text-xl font-bold text-zinc-900 dark:text-zinc-100 flex items-center justify-between gap-4">
+                <span>Hábitos de Vida Saudáveis</span>
+                <svg class="accordion-icon w-5 h-5 text-brand-600 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+              </button>
+              <div class="accordion-body hidden px-6 pb-6 text-zinc-600 dark:text-zinc-300 space-y-3 border-t border-zinc-100 dark:border-zinc-800/60 pt-4">
+                <p>Estudos indicam que hábitos saudáveis podem reduzir em até 30% os casos de câncer de mama:</p>
+                <ul class="list-disc list-inside space-y-2 text-sm">
+                  <li><strong>Atividade Física:</strong> Praticar ao menos 150 minutos de exercícios moderados por semana.</li>
+                  <li><strong>Alimentação Equilibrada:</strong> Priorizar alimentos naturais, frutas, verduras e integrais.</li>
+                  <li><strong>Controle de Peso:</strong> Manter o peso corporal adequado reduz inflamações e riscos hormonais.</li>
+                  <li><strong>Evitar Bebidas Alcoólicas:</strong> O consumo de álcool é fator de risco comprovado.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Accordion 2 -->
+            <div class="bg-white dark:bg-zinc-900 rounded-2xl border border-brand-100 dark:border-brand-900/60 overflow-hidden shadow-sm">
+              <button class="accordion-header w-full p-6 text-left font-serif text-xl font-bold text-zinc-900 dark:text-zinc-100 flex items-center justify-between gap-4">
+                <span>Fatores de Risco Conhecidos</span>
+                <svg class="accordion-icon w-5 h-5 text-brand-600 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+              </button>
+              <div class="accordion-body hidden px-6 pb-6 text-zinc-600 dark:text-zinc-300 space-y-3 border-t border-zinc-100 dark:border-zinc-800/60 pt-4">
+                <p class="text-sm">Os principais fatores dividem-se entre biológicos e comportamentais:</p>
+                <ul class="list-disc list-inside space-y-2 text-sm">
+                  <li><strong>Idade:</strong> O risco aumenta progressivamente com o avanço da idade (especialmente após os 50 anos).</li>
+                  <li><strong>Histórico Familiar:</strong> Casos de câncer de mama ou ovário em parentes de primeiro grau.</li>
+                  <li><strong>Fatores Hormoniais:</strong> Primeira menstruação antes dos 12 anos ou menopausa após os 55.</li>
+                  <li><strong>Estilo de Vida:</strong> Sedentarismo, sobrepeso após a menopausa e consumo frequente de álcool.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Diretrizes de Mamografia (SUS vs SBM) -->
+          <div class="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-8 border border-brand-100 dark:border-brand-900/60 shadow-md">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-xl bg-brand-100 dark:bg-brand-950 text-brand-700 dark:text-brand-300 flex items-center justify-center">
+                <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-zinc-900 dark:text-zinc-100">Directrizes de Mamografia</h3>
+            </div>
+
+            <div class="space-y-4">
+              <!-- SUS -->
+              <div class="p-4 rounded-xl bg-rose-50/60 dark:bg-zinc-800/60 border border-brand-100 dark:border-brand-900/40">
+                <div class="font-bold text-brand-800 dark:text-brand-300 text-sm uppercase tracking-wide mb-1">Ministério da Saúde / SUS</div>
+                <p class="text-sm text-zinc-700 dark:text-zinc-300">
+                  Recomenda a realização da mamografia de rastreamento a cada <strong>2 anos</strong> para mulheres entre <strong>50 e 74 anos</strong>.
+                </p>
+              </div>
+
+              <!-- SBM -->
+              <div class="p-4 rounded-xl bg-rose-50/60 dark:bg-zinc-800/60 border border-brand-100 dark:border-brand-900/40">
+                <div class="font-bold text-brand-800 dark:text-brand-300 text-sm uppercase tracking-wide mb-1">Sociedade Brasileira de Mastologia (SBM)</div>
+                <p class="text-sm text-zinc-700 dark:text-zinc-300">
+                  Recomenda o rastreamento <strong>anual</strong> a partir dos <strong>40 anos</strong> para mulheres de risco habitual.
+                </p>
+              </div>
+
+              <div class="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/50 text-amber-900 dark:text-amber-200 text-xs leading-relaxed">
+                <strong>Aviso importante:</strong> Mulheres com histórico familiar de câncer de mama devem consultar o médico para definir o início do rastreamento precocemente.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="cuidados" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-brand-700 dark:text-brand-400 font-bold text-sm uppercase tracking-wider">Apoio & Cuidado Legal</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-zinc-100 mt-2 mb-4">
+          Direitos da Paciente e Cuidados
+        </h2>
+        <p class="text-zinc-600 dark:text-zinc-300 text-lg">
+          O acesso ao diagnóstico rápido e ao tratamento é um direito garantido por lei em todo o território nacional.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <!-- Card 1 -->
+        <div class="bg-white dark:bg-zinc-900 p-8 rounded-3xl border border-brand-100 dark:border-brand-900/60 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-brand-100 dark:bg-brand-950 text-brand-700 dark:text-brand-300 flex items-center justify-center font-serif font-bold text-xl mb-6">
+              01
+            </div>
+            <h3 class="font-serif text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-3">Notou uma alteração?</h3>
+            <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              Marque uma consulta no Posto de Saúde (UBS) mais próximo. Leve suas dúvidas anotadas e informe caso tenha histórico de câncer na família.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-zinc-100 dark:border-zinc-800 text-xs text-brand-700 dark:text-brand-400 font-semibold">
+            Primeiro passo fundamental
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white dark:bg-zinc-900 p-8 rounded-3xl border border-brand-100 dark:border-brand-900/60 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-brand-100 dark:bg-brand-950 text-brand-700 dark:text-brand-300 flex items-center justify-center font-serif font-bold text-xl mb-6">
+              02
+            </div>
+            <h3 class="font-serif text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-3">Lei dos 30 Dias</h3>
+            <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              A Lei nº 13.896/2019 garante que os exames diagnósticos devam ser realizados no SUS no prazo máximo de <strong>30 dias</strong> em casos de suspeita.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-zinc-100 dark:border-zinc-800 text-xs text-brand-700 dark:text-brand-400 font-semibold">
+            Garantia de diagnóstico ágil
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white dark:bg-zinc-900 p-8 rounded-3xl border border-brand-100 dark:border-brand-900/60 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-brand-100 dark:bg-brand-950 text-brand-700 dark:text-brand-300 flex items-center justify-center font-serif font-bold text-xl mb-6">
+              03
+            </div>
+            <h3 class="font-serif text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-3">Lei dos 60 Dias</h3>
+            <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              A Lei nº 12.732/2012 assegura o início do tratamento no SUS em até <strong>60 dias</strong> após a confirmação do diagnóstico em laudo médico.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-zinc-100 dark:border-zinc-800 text-xs text-brand-700 dark:text-brand-400 font-semibold">
+            Início rápido do tratamento
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="quiz" class="py-20 bg-brand-50/50 dark:bg-zinc-900/50 border-y border-brand-100 dark:border-brand-900/40">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-brand-700 dark:text-brand-400 font-bold text-sm uppercase tracking-wider">Quiz Interativo</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-zinc-100 mt-2 mb-4">
+            Mito ou Verdade?
+          </h2>
+          <p class="text-zinc-600 dark:text-zinc-300 text-base">
+            Muitas informações circulam sobre a saúde das mamas. Teste seus conhecimentos e tire suas dúvidas com fatos baseados na ciência.
+          </p>
+        </div>
+
+        <!-- Quiz Box Container -->
+        <div id="quizContainer" class="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-brand-100 dark:border-brand-900/60 shadow-xl min-h-[380px] flex flex-col justify-between">
+          <!-- O conteúdo dinâmico do Quiz será inserido aqui pelo JavaScript -->
+        </div>
+
+      </div>
+    </section>
+
+    <section id="checklist" class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-brand-700 dark:text-brand-400 font-bold text-sm uppercase tracking-wider">Plano Pessoal de Autocuidado</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-zinc-100 mt-2 mb-4">
+          Meu Cuidado em Dia
+        </h2>
+        <p class="text-zinc-600 dark:text-zinc-300 text-base">
+          Marque os compromissos que você já cumpriu com a sua saúde. O seu progresso será salvo automaticamente neste dispositivo.
+        </p>
+      </div>
+
+      <div class="bg-white dark:bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-brand-100 dark:border-brand-900/60 shadow-lg space-y-8">
+        
+        <!-- Barra de Progresso -->
+        <div>
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Progresso dos Cuidados</span>
+            <span id="progressPercentText" class="text-sm font-bold text-brand-700 dark:text-brand-400">0% Concluído</span>
+          </div>
+          <div class="w-full h-3 bg-rose-100 dark:bg-zinc-800 rounded-full overflow-hidden">
+            <div id="progressBar" class="h-full bg-brand-600 transition-all duration-500 rounded-full w-0"></div>
+          </div>
+          <p id="progressFeedbackText" class="text-xs text-zinc-500 dark:text-zinc-400 mt-2 text-right">Comece marcando os itens abaixo.</p>
+        </div>
+
+        <!-- Lista de Checkbox -->
+        <div id="checklistItems" class="space-y-3">
+          <!-- Itens dinâmicos via JS -->
+        </div>
+
+        <!-- Ação Final -->
+        <div class="pt-4 border-t border-zinc-100 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <button id="shareChecklistBtn" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-brand-700 hover:bg-brand-800 text-white font-semibold text-sm transition-all flex items-center justify-center gap-2">
+            <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2"><path d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+            <span>Compartilhar Campanha</span>
+          </button>
+          <span id="shareStatusMsg" class="text-xs text-brand-600 dark:text-brand-400 font-medium hidden">Link copiado para a área de transferência!</span>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-zinc-900 text-zinc-300 py-12 border-t border-zinc-800 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-12 gap-8 mb-8">
+        
+        <div class="md:col-span-6 space-y-4">
+          <div class="flex items-center gap-2 text-white font-serif text-xl font-bold">
+            <span class="w-3 h-3 rounded-full bg-brand-600"></span>
+            Outubro Rosa & Saúde da Mulher
+          </div>
+          <p class="text-zinc-400 max-w-md text-xs sm:text-sm leading-relaxed">
+            Este portal foi idealizado para disseminar conscientização, informação de qualidade e acolhimento. As informações aqui contidas têm caráter meramente educativo e não substituem o diagnóstico médico profissional.
+          </p>
+        </div>
+
+        <div class="md:col-span-6 space-y-2">
+          <h4 class="text-white font-semibold mb-3">Fontes Oficiais & Recomendações</h4>
+          <ul class="space-y-2 text-xs text-zinc-400">
+            <li>• INCA (Instituto Nacional de Câncer) – Ministêrio da Saúde</li>
+            <li>• SBM (Sociedade Brasileira de Mastologia)</li>
+            <li>• Organização Mundial da Saúde (OMS)</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 gap-4">
+        <p>© 2026 Outubro Rosa. Todos os direitos reservados. Herbert Ramos.</p>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-brand-400 transition-colors">
+          Voltar ao Topo ↑
+        </button>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>

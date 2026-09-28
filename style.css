@@ -1,0 +1,47 @@
+    .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(248, 187, 208, 0.4);
+    }
+    .dark .glass-card {
+      background: rgba(30, 15, 25, 0.85);
+      border-color: rgba(136, 14, 79, 0.4);
+    }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, #FFF0F5 0%, #FCE4EC 50%, #F8BBD0 100%);
+    }
+    .dark .hero-gradient {
+      background: linear-gradient(135deg, #2A081A 0%, #3D0C26 50%, #1A0410 100%);
+    }
+
+    .custom-shadow {
+      box-shadow: 0 10px 30px -5px rgba(194, 24, 91, 0.08);
+    }
+    
+    .pulse-subtle {
+      animation: pulseSubtle 3s infinite ease-in-out;
+    }
+    @keyframes pulseSubtle {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FFF0F5;
+    }
+    .dark ::-webkit-scrollbar-track {
+      background: #1A0410;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #F48FB1;
+      border-radius: 99px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #C2185B;
+    }

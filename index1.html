@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Outubro Rosa | Você não pode se colocar por último</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Figtree:wght@400;500;600&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="wrap">
+
+    <nav class="nav" aria-label="Seções">
+      <a href="#prevencao">Prevenção</a>
+      <a href="#autoavaliacao">Autoavaliação</a>
+      <a href="#cuidados">Cuidados</a>
+      <a href="#quiz">Mito ou verdade</a>
+      <a href="#checklist">Meu cuidado</a>
+    </nav>
+
+    <header class="hero">
+      <div class="mirror">
+        <p>Quantas vezes você cuidou de tudo e deixou você para depois?</p>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.7a4.3 4.3 0 0 1 7.5 2.6c0 5.6-7.5 10.2-7.5 10.2z" />
+        </svg>
+      </div>
+      <h1>Você não pode se colocar por último.</h1>
+      <p class="sign">Outubro Rosa | Seu cuidado também é prioridade.</p>
+    </header>
+
+    <!-- PREVENÇÃO -->
+    <section id="prevencao">
+      <div class="band">
+        <h2>Prevenção</h2>
+        <p>Escolhas simples, feitas com constância, que cuidam do seu amanhã.</p>
+      </div>
+
+      <details>
+        <summary>Hábitos que ajudam</summary>
+        <div class="body">
+          <ul>
+            <li>Movimentar o corpo com regularidade. A OMS sugere cerca de 150 minutos por semana de atividade moderada.
+            </li>
+            <li>Manter um peso saudável ao longo da vida.</li>
+            <li>Beber menos álcool. Quanto menos, melhor.</li>
+            <li>Não fumar.</li>
+            <li>Comer mais alimentos frescos, como frutas, legumes e verduras, e menos ultraprocessados.</li>
+            <li>Amamentar, quando for possível, também protege.</li>
+          </ul>
+          <p class="note">Hábitos saudáveis reduzem o risco, mas não o eliminam. Por isso os exames de rotina continuam
+            importantes.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>O que aumenta o risco</summary>
+        <div class="body">
+          <ul>
+            <li>Envelhecer. A idade é o principal fator.</li>
+            <li>Histórico de câncer de mama ou de ovário na família, principalmente em mãe, irmã ou filha.</li>
+            <li>Primeira menstruação muito cedo ou menopausa tardia.</li>
+            <li>Nunca ter engravidado ou ter a primeira gestação depois dos 30 anos.</li>
+            <li>Excesso de peso após a menopausa, sedentarismo e consumo de álcool.</li>
+            <li>Uso de terapia hormonal sem acompanhamento médico.</li>
+          </ul>
+          <p class="note">Ter um fator de risco não significa que a doença vai aparecer, e não ter nenhum não significa
+            estar livre dela.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Mamografia: quando fazer</summary>
+        <div class="body">
+          <div class="org">
+            <strong>No SUS (Ministério da Saúde e INCA)</strong>
+            <p>De 50 a 74 anos, a cada dois anos. De 40 a 49 anos, o exame pode ser feito mesmo sem sintomas, a partir
+              de uma decisão conjunta com o profissional de saúde.</p>
+          </div>
+          <div class="org">
+            <strong>Sociedade Brasileira de Mastologia</strong>
+            <p>Defende a mamografia anual dos 40 aos 74 anos.</p>
+          </div>
+          <div class="org">
+            <strong>Notou algo diferente?</strong>
+            <p>Em qualquer idade, procure atendimento. Nesse caso o exame serve para investigar, e não precisa esperar a
+              data de rotina.</p>
+          </div>
+          <p class="note">As orientações variam entre os órgãos e podem ser atualizadas. Converse com seu médico para
+            saber o que faz sentido para você, principalmente se há casos na família.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- AUTOAVALIAÇÃO -->
+    <section id="autoavaliacao">
+      <div class="band">
+        <h2>Autoavaliação</h2>
+        <p>Conhecer suas mamas é uma forma de cuidado. Sem hora marcada e sem regra rígida.</p>
+      </div>
+
+      <div class="stepper" aria-live="polite">
+        <div class="stage" id="stage"></div>
+        <h3 class="step-title" id="stepTitle"></h3>
+        <p class="step-text" id="stepText"></p>
+        <div class="dots" id="dots"></div>
+        <div class="row">
+          <button class="btn ghost" id="prev">Voltar</button>
+          <button class="btn" id="next">Próximo</button>
+        </div>
+      </div>
+      <p class="note">Observar as mamas no dia a dia ajuda você a perceber o que é normal para o seu corpo. Isso não
+        substitui o exame clínico nem a mamografia.</p>
+
+      <details>
+        <summary>Sinais que merecem atenção</summary>
+        <div class="body">
+          <ul>
+            <li>Caroço (nódulo) na mama, geralmente endurecido e indolor.</li>
+            <li>Pele da mama vermelha, retraída ou parecida com casca de laranja.</li>
+            <li>Mudança no formato ou no tamanho da mama.</li>
+            <li>Alterações no mamilo, como afundamento ou ferida.</li>
+            <li>Líquido saindo do mamilo sem ser apertado.</li>
+            <li>Caroços na axila ou no pescoço.</li>
+          </ul>
+          <p>Ter um desses sinais não quer dizer que é câncer, e a maioria das alterações não é. Mas só uma avaliação
+            profissional pode confirmar. Procure atendimento sem esperar passar.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- CUIDADOS -->
+    <section id="cuidados">
+      <div class="band">
+        <h2>Cuidados</h2>
+        <p>Quando surge uma dúvida, você não precisa passar por isso sozinha.</p>
+      </div>
+
+      <details>
+        <summary>Notei uma alteração. E agora?</summary>
+        <div class="body">
+          <ul>
+            <li>Procure uma Unidade Básica de Saúde ou seu médico logo.</li>
+            <li>Anote quando você percebeu a mudança e se ela está crescendo.</li>
+            <li>Evite tentar se diagnosticar pela internet. Isso costuma aumentar a angústia.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Como me preparar para a consulta</summary>
+        <div class="body">
+          <ul>
+            <li>Leve exames anteriores, como mamografia e ultrassom.</li>
+            <li>Escreva o histórico de câncer na sua família.</li>
+            <li>Liste os medicamentos que você usa.</li>
+            <li>Deixe suas perguntas anotadas, para não esquecer na hora.</li>
+            <li>Se puder, vá acompanhada de alguém de confiança.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Exames que podem ser pedidos</summary>
+        <div class="body">
+          <ul>
+            <li>Mamografia e ultrassonografia das mamas.</li>
+            <li>Biópsia, que retira uma pequena amostra para análise e é o exame que confirma ou descarta o diagnóstico.
+            </li>
+            <li>Em alguns casos, outros exames de imagem, como a ressonância.</li>
+          </ul>
+          <p class="note">Quem decide quais exames fazer é o profissional que avalia o seu caso.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Seus direitos</summary>
+        <div class="body">
+          <ul>
+            <li>Quando há suspeita, os exames para confirmar o diagnóstico devem ser feitos em até 30 dias (Lei
+              13.896/2019).</li>
+            <li>Com o diagnóstico confirmado, o tratamento no SUS deve começar em até 60 dias (Lei 12.732/2012).</li>
+            <li>A reconstrução da mama é um direito garantido em lei.</li>
+          </ul>
+          <p class="note">Se algum prazo não for cumprido, procure a ouvidoria do serviço de saúde ou a Defensoria
+            Pública.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Cuidar das emoções e da rede de apoio</summary>
+        <div class="body">
+          <ul>
+            <li>Sentir medo, cansaço ou raiva faz parte. Você não precisa esconder isso.</li>
+            <li>Peça e aceite ajuda com tarefas do dia a dia.</li>
+            <li>Conte com quem você ama, com grupos de apoio e, se precisar, com acompanhamento psicológico.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Durante e depois do tratamento</summary>
+        <div class="body">
+          <ul>
+            <li>Siga as orientações da equipe de saúde e mantenha as consultas de acompanhamento.</li>
+            <li>Pergunte o que é seguro para você em relação a exercícios e alimentação.</li>
+            <li>Respeite seu ritmo. Descanso também é cuidado.</li>
+          </ul>
+          <p class="note">Cada tratamento é individual. Tire suas dúvidas sempre com a sua equipe.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="quiz">
+      <div class="band">
+        <h2>Mito ou verdade</h2>
+        <p>Seis afirmações para testar o que você sabe.</p>
+      </div>
+      <div class="card" id="quizCard" aria-live="polite"></div>
+    </section>
+
+    <!-- CHECKLIST -->
+    <section id="checklist">
+      <div class="band">
+        <h2>Meu cuidado por mim</h2>
+        <p>Marque o que você já fez e escolha o próximo passo.</p>
+      </div>
+      <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+      <p class="prog-text" id="progText"></p>
+      <ul class="check" id="checkList"></ul>
+    </section>
+
+    <div class="close">
+      <h2>Seu cuidado também é prioridade.</h2>
+      <p>Agende sua consulta e compartilhe este material com uma mulher que você ama.</p>
+      <div class="row">
+        <button class="btn" id="share">Compartilhar</button>
+        <button class="btn ghost" id="top">Voltar ao início</button>
+      </div>
+      <p class="share-msg" id="shareMsg" role="status"></p>
+    </div>
+
+    <footer>
+      <p class="aviso">Este material é informativo e não substitui consulta médica.</p>
+      <h3>Fontes</h3>
+      <ul>
+        <li><a
+            href="https://www.gov.br/inca/pt-br/assuntos/noticias/2025/ministerio-da-saude-padroniza-informacoes-para-acesso-ao-exame-de-mamografia-no-sus">INCA:
+            Ministério da Saúde padroniza informações para acesso à mamografia no SUS (2025)</a></li>
+        <li><a
+            href="https://sbmastologia.com.br/para-o-medico/ministerio-da-saude-amplia-acesso-a-mamografia-a-partir-dos-40-anos/">Sociedade
+            Brasileira de Mastologia: mamografia a partir dos 40 anos no SUS (2025)</a></li>
+        <li><a href="https://www.gov.br/inca/pt-br">INCA: informações gerais sobre prevenção e sinais do câncer de
+            mama</a></li>
+      </ul>
+      <p>Diretrizes conferidas em setembro de 2026.</p>
+    </footer>
+
+  </div>
+
+</body>
+
+</html>
