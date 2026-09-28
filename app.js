@@ -1,29 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* -------------------------------------------------------------
-   * 1. TEMA ESCURO / CLARO
-   * ------------------------------------------------------------- */
-  const themeToggle = document.getElementById('themeToggle');
-  
-  const toggleTheme = () => {
-    if (document.documentElement.classList.contains('dark')) {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    } else {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    }
-  };
+ /* -------------------------------------------------------------
+ * 1. TEMA ESCURO / CLARO (PADRÃO: MODO CLARO)
+ * ------------------------------------------------------------- */
+const themeToggle = document.getElementById('themeToggle');
 
-  if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('dark');
-  } else {
+// Define o tema padrão como 'light' se a preferência ainda não estiver salva no localStorage
+if (!localStorage.getItem('theme')) {
+  localStorage.setItem('theme', 'light');
+}
+
+// Aplica a classe 'dark' APENAS se o usuário explicitamente salvou 'dark' no localStorage
+if (localStorage.getItem('theme') === 'dark') {
+  document.documentElement.classList.add('dark');
+} else {
+  document.documentElement.classList.remove('dark');
+}
+
+const toggleTheme = () => {
+  if (document.documentElement.classList.contains('dark')) {
     document.documentElement.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
+  } else {
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
   }
+};
 
-  if (themeToggle) {
-    themeToggle.addEventListener('click', toggleTheme);
-  }
+if (themeToggle) {
+  themeToggle.addEventListener('click', toggleTheme);
+}
 
 /* -------------------------------------------------------------
  * 2. MENU MOBILE (TRANSIÇÃO SUAVE)
