@@ -30,7 +30,6 @@ const toggleTheme = () => {
 if (themeToggle) {
   themeToggle.addEventListener('click', toggleTheme);
 }
-
 /* -------------------------------------------------------------
  * 2. MENU MOBILE (TRANSIÇÃO SUAVE)
  * ------------------------------------------------------------- */
@@ -475,3 +474,48 @@ if (menuBtn && mobileMenu) {
   }
 
 });
+
+
+
+
+
+
+/* -------------------------------------------------------------
+   * 8. POPUP DO ENVELOPE / CARTA (OUTUBRO ROSA)
+   * ------------------------------------------------------------- */
+  const envelopeModal = document.getElementById('envelopeModal');
+  const sealContainer = document.getElementById('sealContainer');
+  const sealGraphic = document.getElementById('sealGraphic');
+  const envelopeFlap = document.getElementById('envelopeFlap');
+  const letterPaper = document.getElementById('letterPaper');
+  const sealInstruction = document.getElementById('sealInstruction');
+  const closeLetterBtn = document.getElementById('closeLetterBtn');
+
+  if (sealContainer && envelopeModal) {
+    sealContainer.addEventListener('click', () => {
+      // 1. Rompe o selo
+      sealGraphic.classList.add('seal-broken');
+      if (sealInstruction) sealInstruction.classList.add('opacity-0');
+
+      // 2. Abre a aba do envelope após o rompimento
+      setTimeout(() => {
+        envelopeFlap.classList.add('open');
+      }, 300);
+
+      // 3. Eleva e exibe a carta
+      setTimeout(() => {
+        letterPaper.classList.remove('opacity-0', 'translate-y-12');
+        letterPaper.classList.add('opacity-100', 'slide-up');
+      }, 600);
+    });
+
+    // Fechar o modal e revelar o site
+    if (closeLetterBtn) {
+      closeLetterBtn.addEventListener('click', () => {
+        envelopeModal.classList.add('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+          envelopeModal.classList.add('hidden');
+        }, 500);
+      });
+    }
+  }
