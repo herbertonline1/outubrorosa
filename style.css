@@ -45,3 +45,46 @@
     ::-webkit-scrollbar-thumb:hover {
       background: #C2185B;
     }
+
+
+
+
+
+
+    /* Animação do Envelope e Selo */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.envelope-flap {
+  transform-origin: top;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 25;
+}
+
+.envelope-flap.open {
+  transform: rotateX(180deg);
+  z-index: 10;
+}
+
+.seal-left, .seal-right {
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.seal-broken .seal-left {
+  transform: translateX(-30px) rotate(-15deg);
+  opacity: 0;
+}
+
+.seal-broken .seal-right {
+  transform: translateX(30px) rotate(15deg);
+  opacity: 0;
+}
+
+.letter-paper {
+  transition: transform 0.7s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.letter-paper.slide-up {
+  transform: translateY(-40px) scale(1.02);
+}
