@@ -704,88 +704,96 @@
 
 
 
-  <!-- Modal do Envelope / Carta de Boas-Vindas -->
-  <div id="envelopeModal"
-    class="fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/80 backdrop-blur-md p-4 transition-opacity duration-500">
-    <div class="relative w-full max-w-lg perspective-1000 flex flex-col items-center">
+<!-- Modal do Envelope / Carta de Boas-Vindas -->
+<div id="envelopeModal"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/80 backdrop-blur-md p-4 transition-opacity duration-500">
+  <div class="relative w-full max-w-lg perspective-1000 flex flex-col items-center">
 
-      <!-- Texto orientativo -->
-      <p id="sealInstruction" class="text-white text-sm font-medium mb-3 tracking-wide animate-pulse">
-        ✨ Clique no selo para abrir sua mensagem
-      </p>
+    <!-- Estrutura do Envelope -->
+    <div id="envelopeContainer"
+      class="relative w-full bg-rose-100 dark:bg-zinc-900 rounded-2xl shadow-2xl border border-rose-200 dark:border-zinc-800 overflow-hidden min-h-[320px] flex flex-col justify-end">
 
-      <!-- Estrutura do Envelope -->
-      <div id="envelopeContainer"
-        class="relative w-full bg-rose-100 dark:bg-zinc-900 rounded-2xl shadow-2xl border border-rose-200 dark:border-zinc-800 overflow-hidden min-h-[320px] flex flex-col justify-end">
+      <!-- Texto orientativo no CENTRO do envelope -->
+      <div class="absolute inset-0 flex items-center justify-center pt-12 pointer-events-none z-10">
+        <p id="sealInstruction" class="text-rose-900/70 dark:text-rose-200/70 text-sm font-semibold tracking-wide animate-pulse text-center px-4">
+          ✨ Clique no selo para abrir sua mensagem
+        </p>
+      </div>
 
-        <!-- Aba Superior do Envelope -->
-        <div id="envelopeFlap"
-          class="envelope-flap absolute top-0 left-0 w-full h-36 bg-rose-200 dark:bg-zinc-800 rounded-b-3xl border-b border-rose-300 dark:border-zinc-700 shadow-md flex items-end justify-center pb-2">
+      <!-- Logo na parte inferior do Envelope (com ID e transição de opacidade) -->
+      <div id="envelopeFooterLogo" class="absolute bottom-3 left-0 w-full flex justify-center pointer-events-none z-10 transition-opacity duration-300">
+        <img src="LOBO GS_BOLA 8x8.png" alt="Logo Game Station" class="w-12 h-12 object-contain" style="image-rendering: -webkit-optimize-contrast;">
+      </div>
 
-          <!-- Selo de Cera/Logomarca que se rompe -->
-          <div id="sealContainer"
-            class="relative w-20 h-20 -mb-10 cursor-pointer group z-30 flex items-center justify-center">
-            <div id="sealGraphic"
-              class="relative w-16 h-16 rounded-full border-2 border-amber-300 shadow-xl overflow-hidden bg-zinc-900 transition-transform group-hover:scale-105">
-              <!-- Metade Esquerda do Selo -->
-              <div class="seal-left absolute top-0 left-0 w-1/2 h-full overflow-hidden">
-                <img src="LOBO GS_BOLA 8x8.png" alt="Selo Game Station"
-                  class="absolute top-0 left-0 w-16 h-16 max-w-none object-cover">
-              </div>
-              <!-- Metade Direita do Selo -->
-              <div class="seal-right absolute top-0 right-0 w-1/2 h-full overflow-hidden">
-                <img src="LOBO GS_BOLA 8x8.png" alt="Selo Game Station"
-                  class="absolute top-0 right-0 w-16 h-16 max-w-none object-cover">
-              </div>
+      <!-- Aba Superior do Envelope -->
+      <div id="envelopeFlap"
+        class="envelope-flap absolute top-0 left-0 w-full h-36 bg-rose-200 dark:bg-zinc-800 rounded-b-3xl border-b border-rose-300 dark:border-zinc-700 shadow-md flex items-end justify-center pb-2 z-30">
+
+        <!-- Selo de Cera/Logomarca que se rompe -->
+        <div id="sealContainer"
+          class="relative w-20 h-20 -mb-10 cursor-pointer group z-40 flex items-center justify-center">
+          
+          <div id="sealGraphic"
+            class="relative w-16 h-16 transition-transform group-hover:scale-105 pointer-events-auto">
+            
+            <!-- Metade Esquerda do Selo -->
+            <div class="seal-left absolute top-0 left-0 w-1/2 h-full overflow-hidden">
+              <img src="logo.png" alt="Selo Game Station"
+                class="absolute top-0 left-0 w-16 h-16 max-w-none object-cover">
+            </div>
+            <!-- Metade Direita do Selo -->
+            <div class="seal-right absolute top-0 right-0 w-1/2 h-full overflow-hidden">
+              <img src="logo.png" alt="Selo Game Station"
+                class="absolute top-0 right-0 w-16 h-16 max-w-none object-cover">
             </div>
           </div>
-
-        </div>
-
-        <!-- Papel da Carta (Conteúdo da mensagem) -->
-        <div id="letterPaper"
-          class="letter-paper opacity-0 transform translate-y-12 bg-white dark:bg-zinc-950 p-6 sm:p-8 rounded-2xl shadow-lg border border-rose-100 dark:border-zinc-800 m-3 z-20 text-zinc-800 dark:text-zinc-100 space-y-4">
-
-          <div class="text-center space-y-1">
-            <span
-              class="inline-block px-3 py-1 bg-rose-100 dark:bg-rose-950/80 text-rose-700 dark:text-rose-300 text-xs font-semibold rounded-full uppercase tracking-wider">
-              Outubro Rosa
-            </span>
-            <h2 class="font-serif text-xl sm:text-2xl font-bold text-rose-900 dark:text-rose-200">
-              Um lembrete para você 💗
-            </h2>
-          </div>
-
-          <div class="text-sm sm:text-base leading-relaxed space-y-3 font-serif">
-            <p class="font-semibold text-rose-700 dark:text-rose-400 text-center italic">
-              "Você também está na sua lista de prioridades."
-            </p>
-            <p>
-              Outubro Rosa é sobre informação, prevenção e cuidado. É sobre olhar para si com mais atenção, conhecer o
-              próprio corpo e não deixar para amanhã aquilo que pode fazer diferença hoje.
-            </p>
-            <p>
-              Explore este espaço, informe-se e compartilhe o cuidado. Porque cuidar de você também é importante.
-            </p>
-          </div>
-
-          <div class="pt-2 border-t border-rose-100 dark:border-zinc-800 relative flex items-center justify-center">
-           
-            <span class="text-xs font-bold text-zinc-600 dark:text-zinc-400 block">
-               <img src="LOBO GS_BOLA 8x8.png" alt="Logo Game Station" class="w-8 h-8 inline-block">
-              Gente e Gestão | Game Station
-            </span>
-          </div>
-
-          <button id="closeLetterBtn"
-            class="w-full py-3 bg-rose-600 hover:bg-rose-700 text-white font-semibold rounded-xl transition-all shadow-md mt-2">
-            Acessar o Conteúdo
-          </button>
         </div>
 
       </div>
+
+      <!-- Papel da Carta (Conteúdo da mensagem) -->
+      <div id="letterPaper"
+        class="letter-paper opacity-0 pointer-events-none transform translate-y-12 bg-white dark:bg-zinc-950 p-6 sm:p-8 rounded-2xl shadow-lg border border-rose-100 dark:border-zinc-800 m-3 z-20 text-zinc-800 dark:text-zinc-100 space-y-4">
+
+        <div class="text-center space-y-1">
+          <span
+            class="inline-block px-3 py-1 bg-rose-100 dark:bg-rose-950/80 text-rose-700 dark:text-rose-300 text-xs font-semibold rounded-full uppercase tracking-wider">
+            Outubro Rosa
+          </span>
+          <h2 class="font-serif text-xl sm:text-2xl font-bold text-rose-900 dark:text-rose-200">
+            Um lembrete para você 💗
+          </h2>
+        </div>
+
+        <div class="text-sm sm:text-base leading-relaxed space-y-3 font-serif">
+          <p class="font-semibold text-rose-700 dark:text-rose-400 text-center italic">
+            "Você também está na sua lista de prioridades."
+          </p>
+          <p>
+            Outubro Rosa é sobre informação, prevenção e cuidado. É sobre olhar para si com mais atenção, conhecer o
+            próprio corpo e não deixar para amanhã aquilo que pode fazer diferença hoje.
+          </p>
+          <p>
+            Explore este espaço, informe-se e compartilhe o cuidado. Porque cuidar de você também é importante.
+          </p>
+        </div>
+
+        <div class="pt-2 border-t border-rose-100 dark:border-zinc-800 relative flex items-center justify-center">
+          <span class="text-xs font-bold text-zinc-600 dark:text-zinc-400 block">
+            <img src="LOBO GS_BOLA 8x8.png" alt="Logo Game Station" class="w-8 h-8 inline-block mr-1">
+            Gente e Gestão | Game Station
+          </span>
+        </div>
+
+        <button id="closeLetterBtn"
+          class="w-full py-3 bg-rose-600 hover:bg-rose-700 text-white font-semibold rounded-xl transition-all shadow-md mt-2">
+          Acessar o Conteúdo
+        </button>
+      </div>
+
     </div>
   </div>
+</div>
 </body>
 
 </html>
